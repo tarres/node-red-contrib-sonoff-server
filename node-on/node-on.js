@@ -7,8 +7,9 @@ module.exports = function (RED) {
         const sonoffServer = node.server.sonoffServer;
 
         node.on('input', function (msg) {
-            msg.topic = config.device_id;
-            msg.payload = sonoffServer.turnOnDevice(config.device_id);
+            var deviceID = msg;
+            msg.topic = deviceID;
+            msg.payload = sonoffServer.turnOnDevice(deviceID);
             node.send(msg);
         });
     }

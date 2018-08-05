@@ -41,8 +41,9 @@ module.exports = function (RED) {
         }
 
         node.on('input', function (msg) {
-            msg.topic = config.device_id;
-            msg.payload = sonoffServer.getDeviceState(config.device_id);
+            var deviceID = msg;
+            msg.topic = deviceID;
+            msg.payload = sonoffServer.getDeviceState(deviceID);
             node.send(msg);
         });
     }

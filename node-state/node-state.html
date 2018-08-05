@@ -4,14 +4,13 @@
         color: '#A6BBCF',
         defaults: {
             name: { value: "" },
-            device_id: { value: "", required: true },
             server: { value: "", type: "sonoff-server" },
         },
         inputs: 1,
         outputs: 1,
         icon: "bridge-dash.png",
         label: function () {
-            return this.name || "sonoff-state: " + this.device_id;;
+            return this.name || "sonoff-state" ;
         }
     });
 </script>
@@ -24,10 +23,6 @@
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-device_id"><i class="icon-tag"></i> Device ID</label>
-        <input type="text" id="node-input-device_id" placeholder="Device ID">
     </div>
 </script>
 
