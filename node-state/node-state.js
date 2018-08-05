@@ -41,7 +41,7 @@ module.exports = function (RED) {
         }
 
         node.on('input', function (msg) {
-            var deviceID = msg.toString();
+            const deviceID = msg.payload;
             msg.topic = deviceID;
             msg.payload = sonoffServer.getDeviceState(deviceID);
             node.send(msg);
